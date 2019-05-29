@@ -1,9 +1,9 @@
 body {
     
 
-    text-align: left;
 
-    padding: 130px;
+    padding: 100px;
+    text-align: center;
 
     font-family: Arial, Helvetica, sans-serif;
     font-size: 50px;
@@ -13,22 +13,104 @@ body {
 p {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 30px;
-   
-
+    text-align: center;
 
 
 }
 
 h1 {
 
-    display: block;
     font-size: 3em;
     
-
-
-
 }
 
 a {
     text-decoration: none;
 }
+
+logo{
+
+float: left;
+}
+
+.social{
+
+    text-align: center;
+
+}
+
+/* this is the macbook logo*/ 
+#wrapper {
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  .mac-book-pro {
+    width: 430px;
+    height: 400px;
+    align-content: center;
+
+
+  }
+  
+  .mac-book-pro-display {
+    position: relative;
+    margin: 0 auto;
+    width: 300px;
+    height: 180px;
+    border: 20px solid #000000;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    background-color: #2479e0;
+  }
+  
+  .camera {
+    position: absolute;
+    left: 140px;
+    top: -10px;
+    background-color: #222222;
+    width: 5px;
+    height: 5px;
+    border-radius: 50px;
+  }
+  
+  .mac-book-pro-body {
+    position: relative;
+    margin: 0 auto;
+    width: 430px;
+    height: 15px;
+    background-color: #DDDDDD;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+  }
+  
+  .opening {
+    margin: 0 auto;
+    width: 100px;
+    height: 5px;
+    background-color: #888888;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  
+  .led {
+    position: absolute;
+    right: 15px;
+    top: 7px;
+    background-color: #555555;
+    width: 12px;
+    height: 2px;
+  }
+  
+  .mac-book-pro-bottom {
+    display: block;
+    margin: 0 auto;
+    width: 401px;
+    border-top: 5px solid #999999;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+  }
+
+ /* this is the end  macbook logo*/ 
