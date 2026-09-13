@@ -2,35 +2,49 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     margin: 0;
     min-height: 100vh;
-    padding: 60px 24px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     position: relative;
     overflow-x: hidden;
 
-    background: #0a0b0d;
+    background: #08090b;
     color: #f2f3f5;
 
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* soft animated glow behind the card */
+/* faint dev-tool grid */
+.grid-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 40%, transparent 90%);
+}
+
+/* soft animated glow */
 .aurora {
     position: fixed;
     inset: 0;
     z-index: 0;
     pointer-events: none;
     background:
-        radial-gradient(circle at 30% 20%, rgba(143, 155, 255, 0.35), transparent 45%),
-        radial-gradient(circle at 75% 30%, rgba(255, 143, 209, 0.22), transparent 45%),
-        radial-gradient(circle at 50% 80%, rgba(120, 235, 200, 0.18), transparent 50%);
+        radial-gradient(circle at 20% 15%, rgba(143, 155, 255, 0.32), transparent 45%),
+        radial-gradient(circle at 85% 10%, rgba(255, 143, 209, 0.2), transparent 45%),
+        radial-gradient(circle at 50% 100%, rgba(120, 235, 200, 0.16), transparent 55%);
     filter: blur(40px);
-    animation: drift 16s ease-in-out infinite alternate;
+    animation: drift 18s ease-in-out infinite alternate;
 }
 
 @keyframes drift {
@@ -48,43 +62,29 @@ body {
     }
 }
 
-main {
+.topbar {
     position: relative;
     z-index: 1;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
-    max-width: 480px;
-    padding: 48px 40px;
-    border-radius: 28px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    justify-content: space-between;
+    padding: 32px clamp(24px, 6vw, 72px);
 }
 
-.avatar {
-    width: 84px;
-    height: 84px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3em;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: #0a0b0d;
-    background: linear-gradient(135deg, #8f9bff 0%, #ff8fd1 100%);
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15), 0 12px 30px rgba(143, 155, 255, 0.35);
+.wordmark {
+    font-weight: 800;
+    font-size: 1.1em;
+    letter-spacing: -0.01em;
+}
+
+.wordmark .dot-accent {
+    color: #8f9bff;
 }
 
 .status-pill {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    margin-top: 20px;
     padding: 6px 14px;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.06);
@@ -102,24 +102,53 @@ main {
     box-shadow: 0 0 8px rgba(120, 235, 200, 0.9);
 }
 
+.hero {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 6vw, 72px);
+}
+
+.eyebrow {
+    font-size: 0.9em;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #8f9bff;
+    margin-bottom: 20px;
+}
+
 h1 {
-    margin: 18px 0 0;
-    font-size: 3em;
+    margin: 0;
+    font-size: clamp(3em, 10vw, 7em);
     font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 1.05;
-    background: linear-gradient(135deg, #ffffff 20%, #8f9bff 100%);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: #f2f3f5;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #ffffff 20%, #8f9bff 60%, #ff8fd1 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
 
-p {
-    margin: 14px 0 0;
-    font-size: 1.05em;
+.lede {
+    margin: 28px 0 0;
+    font-size: clamp(1.05em, 2vw, 1.4em);
     font-weight: 400;
     color: #a4a8b3;
-    text-align: center;
+    text-align: left;
+    max-width: 34ch;
 }
 
 a {
@@ -130,17 +159,17 @@ a {
 .social {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 14px;
-    margin-top: 32px;
+    margin-top: 44px;
 }
 
 .imagelink {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 46px;
-    height: 46px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -161,7 +190,7 @@ a {
 footer {
     position: relative;
     z-index: 1;
-    margin-top: 32px;
+    padding: 28px clamp(24px, 6vw, 72px) 40px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     color: #565a63;
     font-size: 12px;
@@ -174,12 +203,24 @@ footer h3 {
     font-weight: 500;
 }
 
-@media (max-width: 480px) {
-    main {
-        padding: 40px 28px;
+@media (max-width: 640px) {
+    .hero {
+        text-align: center;
+        align-items: center;
     }
 
-    h1 {
-        font-size: 2.3em;
+    .lede {
+        text-align: center;
+    }
+
+    .social {
+        justify-content: center;
+    }
+
+    .topbar {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+        text-align: center;
     }
 }
