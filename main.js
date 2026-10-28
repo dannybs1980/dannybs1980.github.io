@@ -14,8 +14,8 @@
 
 	function resize() {
 		dpr = Math.min(window.devicePixelRatio || 1, 2);
-		w = window.innerWidth;
-		h = window.innerHeight;
+		w = document.documentElement.clientWidth;
+		h = document.documentElement.clientHeight;
 		canvas.width = w * dpr;
 		canvas.height = h * dpr;
 		canvas.style.width = w + 'px';
